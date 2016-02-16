@@ -22,6 +22,23 @@ gulp.task('js', function () {
 	.pipe(gulp.dest("dist/"));
 });
 
+gulp.task('example', function () {
+	gulp.src('example-src/**/*.jade')
+	.pipe(jade({pretty: true}))
+	.pipe(gulp.dest("example"));
+
+	gulp.src('example-src/**/*.js')
+	.pipe(ngAnnotate())
+	.pipe(gulp.dest("example"));
+
+	gulp.src('example-src/images/**/*')
+	.pipe(gulp.dest("example/images"));
+
+	return gulp.src('example-src/**/*.scss')
+	.pipe(sass({outputStyle: 'expanded'}))
+	.pipe(gulp.dest("example"));
+});
+
 gulp.task('build', ['sass', 'jade', 'js']);
 
 gulp.task('watch', function () {
@@ -35,6 +52,10 @@ gulp.task('watch', function () {
 
 	watch('src/**/*.js', function () {
 		gulp.start('js');
+	});
+
+	watch('example/**/*', function () {
+		gulp.start('example');
 	});
 });
 
