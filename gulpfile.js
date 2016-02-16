@@ -54,9 +54,9 @@ gulp.task('watch', function () {
 		gulp.start('js');
 	});
 
-	watch('example/**/*', function () {
+	watch('example-src/**/*', function () {
 		gulp.start('example');
 	});
 });
 
-gulp.task('default', ['build', 'watch']);
+gulp.task('default', ['build', 'example', 'watch']);
