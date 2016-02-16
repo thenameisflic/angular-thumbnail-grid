@@ -7,11 +7,9 @@ head
 	meta(name="author" content="Flicsl")
 	title Angular Thumbnail Grid Example
 	link(rel="stylesheet" href="../dist/angular-thumbnail-grid.css")
-body
+body(ng-app="angular-thumbnail-grid-example")
 	.main
-		ul.og-grid(id="og-grid")
-			li
-				a(href="www.google.com" data-largesrc="images/1.jpg" data-title="Azuki Bean" data-description="Lorem ipsum dolor sit amet consectetut adiscipling elit.")
-					img(src="images/thumbs/1.jpg" alt="img01")
+		bm-thumbnail-grid
 script(src="../bower_components/angular/angular.js")
-script(src="../dist/angular-thumbnail-grid.js")
+script(src="../dist/angular-thumbnail-grid.min.js")
+script(src="index.js")

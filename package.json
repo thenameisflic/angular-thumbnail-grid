@@ -26,6 +26,7 @@
   "homepage": "https://github.com/flicsl/angular-thumbnail-grid#readme",
   "dependencies": {
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
     "gulp-jade": "^1.1.0",
     "gulp-ng-annotate": "^1.1.0",
     "gulp-sass": "^2.2.0",

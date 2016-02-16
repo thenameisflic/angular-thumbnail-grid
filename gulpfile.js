@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var watch =  require('gulp-watch');
 var sass = require('gulp-sass');
 var jade = require('gulp-jade');
+var concat = require('gulp-concat');
 var ngAnnotate = require('gulp-ng-annotate');
 
 gulp.task('sass', function () {
@@ -19,6 +20,7 @@ gulp.task('jade', function () {
 gulp.task('js', function () {
 	return gulp.src('src/**/*.js')
 	.pipe(ngAnnotate())
+	.pipe(concat('angular-thumbnail-grid.min.js'))
 	.pipe(gulp.dest("dist/"));
 });
 

@@ -1,0 +1,15 @@
+ul.ng-grid(id="ng-grid")
+	li(bm-thumbnail-li ng-repeat="i in [3,4,5,6,7,8]" ng-click="expanded = !expanded" ng-class="expanded ? 'ng-expanded' : ''" expanded="expanded")
+		a(data-largesrc="images/{{i % 3 + 1}}.jpg" data-title="Azuki Bean" data-description="Lorem ipsum dolor sit amet consectetut adiscipling elit.")
+			img(ng-src="images/thumbs/{{i % 3 + 1}}.jpg" alt="img01")
+		.ng-expander(ng-show="expanded" style="height: 300px;")
+			.ng-expander-inner
+				span.ng-close
+				.ng-fullimg
+					img(ng-src="images/{{i % 3 + 1}}.jpg")
+				.ng-fullimg
+					h3 Title
+					p Description
+					a(href="#") Visit website
+
+
