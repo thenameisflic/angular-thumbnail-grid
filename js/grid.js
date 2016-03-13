@@ -346,11 +346,7 @@ var Grid = (function() {
 	Preview.prototype = {
 		create : function(detailsTemplate) {
 			// create Preview structure:
-			this.$title = $( '<h3></h3>' );
-			this.$description = $( '<p></p>' );
-			this.$href = $( '<a href="#">Visit website</a>' );
-			this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$href );
-			this.$details = $.parseHTML( detailsTemplate );
+			this.$details = $( '<div></div>' );
 			this.$loading = $( '<div class="og-loading"></div>' );
 			this.$fullimage = $( '<div class="og-fullimg"></div>' ).append( this.$loading );
 			this.$closePreview = $( '<span class="og-close"></span>' );
@@ -386,14 +382,9 @@ var Grid = (function() {
 				eldata = {
 					href : $itemEl.attr( 'href' ),
 					largesrc : $itemEl.data( 'largesrc' ),
-					title : $itemEl.data( 'title' ),
-					description : $itemEl.data( 'description' ),
 					detailsTemplate: $itemEl.data('details')
 				};
 
-			this.$title.html( eldata.title );
-			this.$description.html( eldata.description );
-			this.$href.attr( 'href', eldata.href );
 
 			console.log(eldata.detailsTemplate);
 			console.log( this.$details );

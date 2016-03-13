@@ -10,7 +10,6 @@
 			},
 			templateUrl: 'ogThumbnailGrid.html',
 			link: function (scope, elm, attr) {
-				console.log('initiated directive');
 				$timeout(function () {
 					Grid.addItems(angular.element(elm.children()[0]).children());
 				});
