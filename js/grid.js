@@ -277,8 +277,12 @@ var Grid = (function() {
 		} ).children( 'a' ).on( 'click', function(e) {
 
 			var $item = $( this ).parent();
+
+			//retrieve template
+			$itemEl = $item.children( 'a' );
+
 			// check if item already opened
-			current === $item.index() ? hidePreview() : showPreview( $item );
+			current === $item.index() ? hidePreview() : showPreview( $item, $itemEl.data( 'details' ) );
 			return false;
 
 		} );
@@ -288,7 +292,7 @@ var Grid = (function() {
 		winsize = { width : $window.width(), height : $window.height() };
 	}
 
-	function showPreview( $item ) {
+	function showPreview( $item, detailsTemplate ) {
 
 		var preview = $.data( this, 'preview' ),
 			// item´s offset top
@@ -318,7 +322,7 @@ var Grid = (function() {
 		// update previewPos
 		previewPos = position;
 		// initialize new preview for the clicked item
-		preview = $.data( this, 'preview', new Preview( $item ) );
+		preview = $.data( this, 'preview', new Preview( $item, detailsTemplate ) );
 		// expand preview overlay
 		preview.open();
 
@@ -332,20 +336,21 @@ var Grid = (function() {
 	}
 
 	// the preview obj / overlay
-	function Preview( $item ) {
+	function Preview( $item, detailsTemplate ) {
 		this.$item = $item;
 		this.expandedIdx = this.$item.index();
-		this.create();
+		this.create(detailsTemplate);
 		this.update();
 	}
 
 	Preview.prototype = {
-		create : function() {
+		create : function(detailsTemplate) {
 			// create Preview structure:
 			this.$title = $( '<h3></h3>' );
 			this.$description = $( '<p></p>' );
 			this.$href = $( '<a href="#">Visit website</a>' );
 			this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$href );
+			this.$details = $.parseHTML( detailsTemplate );
 			this.$loading = $( '<div class="og-loading"></div>' );
 			this.$fullimage = $( '<div class="og-fullimg"></div>' ).append( this.$loading );
 			this.$closePreview = $( '<span class="og-close"></span>' );
@@ -377,17 +382,25 @@ var Grid = (function() {
 			current = this.$item.index();
 
 			// update preview´s content
-			var $itemEl = this.$item.children( 'a' ),
+			var $itemEl = this.$item.children( 'a' );
 				eldata = {
 					href : $itemEl.attr( 'href' ),
 					largesrc : $itemEl.data( 'largesrc' ),
 					title : $itemEl.data( 'title' ),
-					description : $itemEl.data( 'description' )
+					description : $itemEl.data( 'description' ),
+					detailsTemplate: $itemEl.data('details')
 				};
 
 			this.$title.html( eldata.title );
 			this.$description.html( eldata.description );
 			this.$href.attr( 'href', eldata.href );
+
+			console.log(eldata.detailsTemplate);
+			console.log( this.$details );
+			//$(this.$details).empty();
+			$(this.$details).html('');
+			$(this.$details).append(eldata.detailsTemplate);
+			//$(this.$details).text(eldata.detailsTemplate);
 
 			var self = this;
 			
