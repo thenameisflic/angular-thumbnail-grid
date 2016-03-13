@@ -13,7 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
 		<script src="js/modernizr.custom.js"></script>
 	</head>
-	<body ng-app="angular-thumbnail-grid">
+	<body ng-app="demo-angular-thumbnail-grid">
 		<div class="container">	
 			<!-- Codrops top bar -->
 			<div class="codrops-top clearfix">
@@ -26,8 +26,8 @@
 			<header class="clearfix">
 				<h1>Thumbnail Grid <span>with Expanding Preview</span></h1>	
 			</header>
-			<div class="main">
-				<bm-thumbnail-grid images='[1,2,3]'></bm-thumbnail-grid>
+			<div class="main" ng-controller="DemoCtrl as vm">
+				<bm-thumbnail-grid images='vm.images'></bm-thumbnail-grid>
 				<!--
 				<ul id="og-grid" class="og-grid">
 					<li>
@@ -237,9 +237,11 @@
 			</div>
 		</div><!-- /container -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
 		<script src="js/angular-thumbnail-grid.js"></script>
 		<script src="js/grid.js"></script>
+		<script src="js/demo.js"></script>
+
 		<script>
 			$(function() {
 				Grid.init();
