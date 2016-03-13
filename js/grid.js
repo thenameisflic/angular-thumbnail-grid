@@ -400,7 +400,6 @@ var Grid = (function() {
 			//$(this.$details).empty();
 			$(this.$details).html('');
 			$(this.$details).append(eldata.detailsTemplate);
-			//$(this.$details).text(eldata.detailsTemplate);
 
 			var self = this;
 			

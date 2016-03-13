@@ -1,6 +1,6 @@
 (function () {
 	angular.module('angular-thumbnail-grid', [])
-	.directive('bmThumbnailGrid', function ($timeout) {
+	.directive('ogThumbnailGrid', function ($timeout) {
 		return {
 			scope: {},
 			controller: ThumbnailGridCtrl,
@@ -8,7 +8,7 @@
 			bindToController: {
 				images: '='
 			},
-			templateUrl: 'bmThumbnailGrid.html',
+			templateUrl: 'ogThumbnailGrid.html',
 			link: function (scope, elm, attr) {
 				console.log('initiated directive');
 				$timeout(function () {
