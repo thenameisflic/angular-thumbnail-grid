@@ -5,7 +5,7 @@
     "Feliciano Santana <fsfelicianosantana@gmail.com>"
   ],
   "description": "Angular thumbnail grid, built around Codrops original code.",
-  "main": "js/angular-thumbnail-grid.js",
+  "main": ["js/modernizr.custom.js", "js/grid.js", "js/angular-thumbnail-grid.js", "css/component.css"],
   "moduleType": [],
   "keywords": [
     "google",
