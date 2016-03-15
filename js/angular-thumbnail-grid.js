@@ -1,6 +1,6 @@
 (function () {
 	angular.module('angular-thumbnail-grid', [])
-	.directive('ogThumbnailGrid', function ($timeout) {
+	.directive('ogThumbnailGrid', ['$timeout', function ($timeout) {
 		return {
 			scope: {},
 			controller: ThumbnailGridCtrl,
@@ -15,7 +15,7 @@
 				});
 			}
 		};
-	});
+	}]);
 
 	function ThumbnailGridCtrl () {
 		var vm = this;
