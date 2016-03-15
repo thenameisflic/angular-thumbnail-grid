@@ -1,0 +1,30 @@
+{
+  "name": "angular-thumbnail-grid",
+  "homepage": "https://github.com/flicsl/angular-thumbnail-grid",
+  "authors": [
+    "Feliciano Santana <fsfelicianosantana@gmail.com>"
+  ],
+  "description": "Angular thumbnail grid, built around Codrops original code.",
+  "main": "js/angular-thumbnail-grid.js",
+  "moduleType": [],
+  "keywords": [
+    "google",
+    "images",
+    "portfolio",
+    "angular",
+    "thumbnails",
+    "thumbnail-grid"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "jquery": "^2.2.1"
+  }
+}
