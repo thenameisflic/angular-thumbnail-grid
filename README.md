@@ -3,6 +3,8 @@ Angular wrapper around [Codrops angular thumbnail grid](http://tympanus.net/codr
 
 ### TODO
 - Enable template loading via templateUrl
+- Fix slide after opening thumbnail
+- Add max-height and max-width to thumbnails
 - Completely remove jQuery dependency
 
 Original code by Codrops
